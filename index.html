@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoML Engine</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">◈</span>
+      <div><h1>CoML Engine</h1><p class="small muted">Inputs → outcomes correlation lab</p></div>
+    </div>
+    <div class="top-actions">
+      <button class="btn" data-act="view" data-v="data">⇪ Load CSV</button>
+      <button class="btn" id="themeBtn" data-act="theme" title="Theme">◐ Auto</button>
+    </div>
+  </header>
+  <nav id="nav" class="nav" aria-label="Views"></nav>
+  <div id="controls" class="controls" hidden></div>
+  <main id="main"></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div class="dropveil" aria-hidden="true"><div>Drop CSV to load</div></div>
+
+  <script src="js/stats.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
