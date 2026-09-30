@@ -1,31 +1,1971 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/Daiten/Desktop/Daiten%20Software/CoML/COML%20ENGINE/CoML_Engine.html
+Subject: CoML Engine
+Date: Wed, 30 Sep 2026 15:17:35 GMT
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--zqiu8ev08WtMjWyDH1dgtgBGBZc79SDU2Uq2NQcjMz----"
+
+
+------MultipartBoundary--zqiu8ev08WtMjWyDH1dgtgBGBZc79SDU2Uq2NQcjMz----
+Content-Type: text/html
+Content-ID: <frame-0B9533A80586382BF34EA7B4038BB119@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/Daiten/Desktop/Daiten%20Software/CoML/COML%20ENGINE/CoML_Engine.html
+
+<!DOCTYPE html><html lang=3D"en" class=3D"dark"><head><meta http-equiv=3D"C=
+ontent-Type" content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet=
+" type=3D"text/css" href=3D"cid:css-f6e397c6-0c89-42c9-84d8-61bf13259002@mh=
+tml.blink" />
+ =20
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">
   <title>CoML Engine</title>
-  <link rel="stylesheet" href="css/style.css">
+ =20
 </head>
 <body>
-  <header class="top">
-    <div class="brand">
-      <span class="logo" aria-hidden="true">◈</span>
-      <div><h1>CoML Engine</h1><p class="small muted">Inputs → outcomes correlation lab</p></div>
+  <header class=3D"top">
+    <div class=3D"brand">
+      <span class=3D"logo" aria-hidden=3D"true">=E2=97=88</span>
+      <div><h1>CoML Engine</h1><p class=3D"small muted">Inputs =E2=86=92 ou=
+tcomes correlation lab</p></div>
     </div>
-    <div class="top-actions">
-      <button class="btn" data-act="view" data-v="data">⇪ Load CSV</button>
-      <button class="btn" id="themeBtn" data-act="theme" title="Theme">◐ Auto</button>
+    <div class=3D"top-actions">
+      <button class=3D"btn" data-act=3D"view" data-v=3D"data">=E2=87=AA Loa=
+d CSV</button>
+      <button class=3D"btn" id=3D"themeBtn" data-act=3D"theme" title=3D"The=
+me">=E2=97=90 Auto</button>
     </div>
   </header>
-  <nav id="nav" class="nav" aria-label="Views"></nav>
-  <div id="controls" class="controls" hidden></div>
-  <main id="main"></main>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <div class="dropveil" aria-hidden="true"><div>Drop CSV to load</div></div>
+  <nav id=3D"nav" class=3D"nav" aria-label=3D"Views"><button class=3D"" dat=
+a-act=3D"view" data-v=3D"impact">Impact</button><button class=3D"" data-act=
+=3D"view" data-v=3D"rank">Rankings</button><button class=3D"on" data-act=3D=
+"view" data-v=3D"overall">Best &amp; worst</button><button class=3D"" data-=
+act=3D"view" data-v=3D"overview">Overview</button><button class=3D"" data-a=
+ct=3D"view" data-v=3D"heat">Tags =C3=97 Metrics</button><button class=3D"" =
+data-act=3D"view" data-v=3D"tag">Tag</button><button class=3D"" data-act=3D=
+"view" data-v=3D"metric">Metric</button><button class=3D"" data-act=3D"view=
+" data-v=3D"dose">Kratom</button><button class=3D"" data-act=3D"view" data-=
+v=3D"corr">Metric links</button><button class=3D"" data-act=3D"view" data-v=
+=3D"nutr">Nutrients &amp; groups</button><button class=3D"" data-act=3D"vie=
+w" data-v=3D"explore">Explorer</button><button class=3D"" data-act=3D"view"=
+ data-v=3D"data">Data</button></nav>
+  <div id=3D"controls" class=3D"controls">
+     =20
+      <div class=3D"ctl"><span class=3D"ctl-l">Adjust for</span>
+        <label class=3D"chk"><input type=3D"checkbox" data-bind=3D"controls=
+.trend"> Time trend</label>
+        <label class=3D"chk"><input type=3D"checkbox" data-bind=3D"controls=
+.dose0"> Kratom (g) same day</label>
+        <label class=3D"chk"><input type=3D"checkbox" data-bind=3D"controls=
+.dose1"> Kratom (g) day before</label>
+      </div>
+      <div class=3D"ctl"><label class=3D"chk" title=3D"Use ranks instead of=
+ raw values: robust to outliers (Spearman-style)"><input type=3D"checkbox" =
+data-bind=3D"ranks"> Rank-based</label></div>
+      <div class=3D"ctl"><span class=3D"ctl-l">Min. days</span><input type=
+=3D"number" min=3D"1" max=3D"50" value=3D"3" data-bind=3D"minDays" class=3D=
+"num" title=3D"A tag needs at least this many days with AND without it"></d=
+iv>
+      <div class=3D"ctl"><span class=3D"ctl-l">Significance</span><select d=
+ata-bind=3D"alpha"><option value=3D"0.01">p &lt; 0.01</option><option value=
+=3D"0.05" selected=3D"">p &lt; 0.05</option><option value=3D"0.1">p &lt; 0.=
+1</option></select></div></div>
+  <main id=3D"main">
+      <div class=3D"imp-head">
+        <h2 class=3D"imp-title">Best and worst tags overall</h2>
+        <p class=3D"sub">Every tag scored across all 16 included metrics at=
+ once: effects that make a metric better count up, worse count down, and re=
+liable effects count more than shaky ones.</p>
+      </div>
+      <div class=3D"chips"><button class=3D"chip on" data-act=3D"ov-metric"=
+ data-v=3D"MOOD" title=3D"Mood =C2=B7 click to exclude">MOOD</button><butto=
+n class=3D"chip on" data-act=3D"ov-metric" data-v=3D"HEALTH" title=3D"Healt=
+h =C2=B7 click to exclude">HEALTH</button><button class=3D"chip on" data-ac=
+t=3D"ov-metric" data-v=3D"HI" title=3D"Libido =C2=B7 click to exclude">HI</=
+button><button class=3D"chip on" data-act=3D"ov-metric" data-v=3D"HRV" titl=
+e=3D"HRV =C2=B7 click to exclude">HRV</button><button class=3D"chip on" dat=
+a-act=3D"ov-metric" data-v=3D"RHR" title=3D"Resting HR =C2=B7 click to excl=
+ude">RHR</button><button class=3D"chip on" data-act=3D"ov-metric" data-v=3D=
+"SS" title=3D"Sleep score =C2=B7 click to exclude">SS</button><button class=
+=3D"chip on" data-act=3D"ov-metric" data-v=3D"TtSS" title=3D"Time to sound =
+sleep =C2=B7 click to exclude">TtSS</button><button class=3D"chip on" data-=
+act=3D"ov-metric" data-v=3D"Awake%" title=3D"Awake % =C2=B7 click to exclud=
+e">Awake%</button><button class=3D"chip on" data-act=3D"ov-metric" data-v=
+=3D"REM%" title=3D"REM % =C2=B7 click to exclude">REM%</button><button clas=
+s=3D"chip on" data-act=3D"ov-metric" data-v=3D"DEEP%" title=3D"Deep % =C2=
+=B7 click to exclude">DEEP%</button><button class=3D"chip on" data-act=3D"o=
+v-metric" data-v=3D"REMs" title=3D"REM episodes =C2=B7 click to exclude">RE=
+Ms</button><button class=3D"chip on" data-act=3D"ov-metric" data-v=3D"WE" t=
+itle=3D"Work ethic =C2=B7 click to exclude">WE</button><button class=3D"chi=
+p on" data-act=3D"ov-metric" data-v=3D"TD" title=3D"Tasks done =C2=B7 click=
+ to exclude">TD</button><button class=3D"chip on" data-act=3D"ov-metric" da=
+ta-v=3D"PSI" title=3D"PSI =C2=B7 click to exclude">PSI</button><button clas=
+s=3D"chip on" data-act=3D"ov-metric" data-v=3D"MEMORY" title=3D"Memory =C2=
+=B7 click to exclude">MEMORY</button><button class=3D"chip on" data-act=3D"=
+ov-metric" data-v=3D"RT" title=3D"Reaction time =C2=B7 click to exclude">RT=
+</button></div>
+      <div class=3D"toolbar">
+        <span class=3D"ctl-l">Timing</span><div class=3D"seg" role=3D"group=
+"><button class=3D"on" data-act=3D"set" data-k=3D"ovTiming" data-v=3D"best"=
+>Both</button><button class=3D"" data-act=3D"set" data-k=3D"ovTiming" data-=
+v=3D"0">Same day</button><button class=3D"" data-act=3D"set" data-k=3D"ovTi=
+ming" data-v=3D"1">Day after</button></div>
+        <label class=3D"chk"><input type=3D"checkbox" data-bind=3D"ovHideWe=
+ak"> Hide tags with no reliable effect</label>
+        <span class=3D"grow"></span>
+        <button class=3D"btn" data-act=3D"toggle-settings">=E2=9A=99 Settin=
+gs</button>
+      </div>
+      <div class=3D"imp-cols"><section class=3D"card imp-col">
+        <header><h2><span class=3D"imp-arrow good">=E2=96=B2</span> Best fo=
+r me</h2>
+        <p class=3D"sub">18 tags =C2=B7 top 15 shown</p></header>
+        <button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D"nutell=
+a" data-tip=3D"&lt;b&gt;nutella&lt;/b&gt; &lt;span class=3D&quot;muted&quot=
+;&gt;score +0.252 =C2=B7 3 days&lt;/span&gt;&lt;div&gt;&lt;span class=3D&qu=
+ot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RHR: d +1.7 =C2=B7 p 0.00=
+3 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow go=
+od&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +1.31 =C2=B7 p 0.027 =C2=B7 da=
+y after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.78 =C2=B7 p 0=
+.199 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;sp=
+an class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.=
+59 =C2=B7 p 0.336 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt=
+; TtSS: d +0.35 =C2=B7 p 0.576 =C2=B7 day after&lt;/div&gt;&lt;div class=3D=
+&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=
+=B2&lt;/span&gt; HI: d +0.27 =C2=B7 p 0.664 =C2=B7 same day&lt;/div&gt;&lt;=
+div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot=
+;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.25 =C2=B7 p 0.689 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.13 =C2=B7 p 0.835 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=
+=920.08 =C2=B7 p 0.901 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; SS: d =E2=88=920.57 =C2=B7 p 0.351 =C2=B7 day after&lt;/div&gt;&lt;di=
+v class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&g=
+t;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.58 =C2=B7 p 0.347 =C2=B7 day aft=
+er&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">nutella</span><span=
+ class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.25</sp=
+an></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:40.9265=
+56200582425%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> RHR, HEALTH</span><span>3 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"linseed oil" data-tip=3D"&lt;b&gt;linseed oil&lt;/b&gt; &lt;span class=3D&=
+quot;muted&quot;&gt;score +0.187 =C2=B7 7 days&lt;/span&gt;&lt;div&gt;&lt;s=
+pan class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +1.1=
+ =C2=B7 p 0.029 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quo=
+t;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.84 =C2=B7 p 0.04=
+5 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow g=
+ood&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.82 =C2=B7 p 0.053 =C2=B7 d=
+ay after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&=
+quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.58 =C2=B7 p =
+0.172 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +=
+0.49 =C2=B7 p 0.257 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted=
+&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span=
+&gt; SS: d +0.46 =C2=B7 p 0.285 =C2=B7 day after&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; REM%: d +0.35 =C2=B7 p 0.415 =C2=B7 day after&lt;/div&g=
+t;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow goo=
+d&quot;&gt;=E2=96=B2&lt;/span&gt; RHR: d +0.35 =C2=B7 p 0.418 =C2=B7 day af=
+ter&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.12 =C2=B7 p 0.785=
+ =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920=
+.11 =C2=B7 p 0.806 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&q=
+uot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt=
+; HEALTH: d =E2=88=920.48 =C2=B7 p 0.261 =C2=B7 day after&lt;/div&gt;&lt;di=
+v class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&g=
+t;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.53 =C2=B7 p 0.217 =C2=B7 same =
+day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">linseed oil</span><=
+span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.19=
+</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:30.3952=
+80960558875%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 3</span=
+> WE, HRV, Awake%</span><span>7 days =C2=B7 12 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"poppy seed" data-tip=3D"&lt;b&gt;poppy seed&lt;/b&gt; &lt;span class=3D&qu=
+ot;muted&quot;&gt;score +0.119 =C2=B7 4 days&lt;/span&gt;&lt;div&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +1.6 =
+=C2=B7 p 0.006 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot=
+;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.95 =C2=B7 p 0.0=
+74 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0=
+.58 =C2=B7 p 0.284 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&=
+quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&=
+gt; SS: d +0.57 =C2=B7 p 0.288 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&=
+quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=
+=B2&lt;/span&gt; RHR: d +0.46 =C2=B7 p 0.390 =C2=B7 same day&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quo=
+t;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.3 =C2=B7 p 0.584 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.24 =C2=B7 p 0.663 =C2=
+=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span clas=
+s=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.2=
+4 =C2=B7 p 0.664 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt;=
+ MOOD: d =E2=88=920.65 =C2=B7 p 0.229 =C2=B7 same day&lt;/div&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.65 =C2=B7 p 0.223 =C2=B7 same day&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.77 =C2=B7 p 0=
+.152 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow=
+ bad&quot;&gt;=E2=96=BC&lt;/span&gt; TtSS: d =E2=88=920.77 =C2=B7 p 0.148 =
+=C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">poppy seed</span><s=
+pan class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.12<=
+/span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:19.2946=
+10170372486%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> WE, DEEP% =C2=B7 <span class=3D"down">=E2=96=BC 1</span> TtSS</span><span=
+>4 days =C2=B7 12 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"gaming" data-tip=3D"&lt;b&gt;gaming&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score +0.118 =C2=B7 28 days&lt;/span&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HI: d +1.09 =C2=B7 =
+p 0.013 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.94 =C2=B7 p 0.024 =C2=
+=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good&qu=
+ot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.71 =C2=B7 p 0.118 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; TtSS: d +0.62 =C2=B7 p 0.143 =C2=B7 same day&lt;/div&gt=
+;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good=
+&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.77 =C2=B7 p 0.260 =C2=B7 same day=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.51 =C2=B7 p 0.232 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.38 =
+=C2=B7 p 0.403 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+REM%: d +0.27 =C2=B7 p 0.531 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; TD: d =E2=88=920.05 =C2=B7 p 0.939 =C2=B7 same day&lt;/div&gt;&=
+lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&qu=
+ot;&gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=88=920.16 =C2=B7 p 0.820 =C2=B7=
+ same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=920.38 =
+=C2=B7 p 0.610 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MO=
+OD: d =E2=88=920.31 =C2=B7 p 0.466 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; SS: d =E2=88=920.5 =C2=B7 p 0.269 =C2=B7 day after&lt;/=
+div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arro=
+w bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.54 =C2=B7 p 0.202 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=920.=
+64 =C2=B7 p 0.224 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&=
+quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=920.73 =C2=
+=B7 p 0.107 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">gaming</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.12</spa=
+n></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:19.1600=
+06773623554%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 4</span=
+> HI, REMs, HEALTH =C2=B7 <span class=3D"down">=E2=96=BC 1</span> RHR</span=
+><span>28 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev1" data-act=3D"go-tag" data-v=3D=
+"whole wheat bread" data-tip=3D"&lt;b&gt;whole wheat bread&lt;/b&gt; &lt;sp=
+an class=3D&quot;muted&quot;&gt;score +0.103 =C2=B7 17 days&lt;/span&gt;&lt=
+;div&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&g=
+t; MEMORY: d +1.2 =C2=B7 p 0.064 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;=
+span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RHR: d +0=
+.64 =C2=B7 p 0.056 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&q=
+uot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&g=
+t; RT: d +0.94 =C2=B7 p 0.161 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&q=
+uot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2=
+&lt;/span&gt; TtSS: d +0.46 =C2=B7 p 0.174 =C2=B7 same day&lt;/div&gt;&lt;d=
+iv class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;=
+&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.4 =C2=B7 p 0.256 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +0.47 =C2=B7 p 0.317 =C2=B7=
+ same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.35 =C2=B7 p =
+0.303 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;s=
+pan class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +0.3=
+2 =C2=B7 p 0.363 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt=
+; REMs: d +0.26 =C2=B7 p 0.466 =C2=B7 day after&lt;/div&gt;&lt;div class=3D=
+&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=
+=B2&lt;/span&gt; Awake%: d +0.18 =C2=B7 p 0.611 =C2=B7 same day&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&=
+quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.17 =C2=B7 p 0.634 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.09 =C2=B7 p 0.794 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.=
+39 =C2=B7 p 0.259 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&=
+quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.52 =
+=C2=B7 p 0.133 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; T=
+D: d =E2=88=920.81 =C2=B7 p 0.231 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">whole wheat bread</=
+span><span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span=
+>+0.1</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:16.7644=
+2808120849%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> MEMORY, RHR =C2=B7 <span class=3D"down">=E2=96=BC 1</span> DEEP%</span><s=
+pan>17 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"release" data-tip=3D"&lt;b&gt;release&lt;/b&gt; &lt;span class=3D&quot;mut=
+ed&quot;&gt;score +0.101 =C2=B7 10 days&lt;/span&gt;&lt;div&gt;&lt;span cla=
+ss=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.76 =C2=
+=B7 p 0.041 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HI: d +0.71 =C2=B7 p 0.056 =
+=C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good=
+&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.65 =C2=B7 p 0.083 =C2=B7 same=
+ day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot=
+;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.74 =C2=B7 p 0.277 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.52 =
+=C2=B7 p 0.164 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; T=
+D: d +0.49 =C2=B7 p 0.483 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt=
+;/span&gt; SS: d +0.22 =C2=B7 p 0.563 =C2=B7 same day&lt;/div&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; MEMORY: d +0.16 =C2=B7 p 0.820 =C2=B7 same day&lt;/d=
+iv&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow=
+ good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.04 =C2=B7 p 0.909 =C2=B7 s=
+ame day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.18 =C2=
+=B7 p 0.640 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&g=
+t;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP=
+%: d =E2=88=920.22 =C2=B7 p 0.565 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; REM%: d =E2=88=920.28 =C2=B7 p 0.470 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=920.28 =C2=B7 p 0=
+.468 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;s=
+pan class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=
+=88=920.41 =C2=B7 p 0.400 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;=
+/span&gt; RHR: d =E2=88=920.43 =C2=B7 p 0.264 =C2=B7 day after&lt;/div&gt;"=
+>
+        <span class=3D"imp-top"><span class=3D"imp-tag">release</span><span=
+ class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.1</spa=
+n></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:16.4034=
+8895586094%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 3</span=
+> TtSS, HI, HEALTH</span><span>10 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"peanut butter" data-tip=3D"&lt;b&gt;peanut butter&lt;/b&gt; &lt;span class=
+=3D&quot;muted&quot;&gt;score +0.092 =C2=B7 8 days&lt;/span&gt;&lt;div&gt;&=
+lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RHR: d=
+ +0.86 =C2=B7 p 0.031 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.66 =C2=
+=B7 p 0.102 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&g=
+t;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; WE:=
+ d +0.61 =C2=B7 p 0.286 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;m=
+uted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/=
+span&gt; REM%: d +0.49 =C2=B7 p 0.231 =C2=B7 same day&lt;/div&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; HRV: d +0.4 =C2=B7 p 0.334 =C2=B7 day after&lt;/div&=
+gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow go=
+od&quot;&gt;=E2=96=B2&lt;/span&gt; HI: d +0.37 =C2=B7 p 0.365 =C2=B7 same d=
+ay&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.29 =C2=B7 p 0.475 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.22 =
+=C2=B7 p 0.587 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; S=
+S: d =E2=88=920.25 =C2=B7 p 0.549 =C2=B7 day after&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; Awake%: d =E2=88=920.38 =C2=B7 p 0.351 =C2=B7 day after=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.49 =C2=B7 p =
+0.233 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REMs: d =
+=E2=88=920.5 =C2=B7 p 0.220 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">peanut butter</span=
+><span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.=
+09</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:15.0224=
+10659711129%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> RHR, HEALTH</span><span>8 days =C2=B7 12 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"apple" data-tip=3D"&lt;b&gt;apple&lt;/b&gt; &lt;span class=3D&quot;muted&q=
+uot;&gt;score +0.088 =C2=B7 8 days&lt;/span&gt;&lt;div&gt;&lt;span class=3D=
+&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +1.03 =C2=B7 p 0=
+.009 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arro=
+w good&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +0.96 =C2=B7 p 0.032 =C2=B7 da=
+y after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.48 =C2=B7 p=
+ 0.235 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +=
+0.47 =C2=B7 p 0.253 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted=
+&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span=
+&gt; Awake%: d +0.46 =C2=B7 p 0.265 =C2=B7 day after&lt;/div&gt;&lt;div cla=
+ss=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; REM%: d =E2=88=920.14 =C2=B7 p 0.725 =C2=B7 same day&lt=
+;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-ar=
+row bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.27 =C2=B7 p 0.510 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TtSS: d =E2=88=92=
+0.34 =C2=B7 p 0.409 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted=
+&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&=
+gt; HRV: d =E2=88=920.46 =C2=B7 p 0.257 =C2=B7 same day&lt;/div&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; RHR: d =E2=88=920.47 =C2=B7 p 0.253 =C2=B7 same day&=
+lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-=
+arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.56 =C2=B7 p 0.=
+164 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow =
+bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.78 =C2=B7 p 0.053 =
+=C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">apple</span><span c=
+lass=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.09</span=
+></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:14.3118=
+16829810963%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> SS, WE =C2=B7 <span class=3D"down">=E2=96=BC 1</span> DEEP%</span><span>8=
+ days =C2=B7 12 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"instant coffee" data-tip=3D"&lt;b&gt;instant coffee&lt;/b&gt; &lt;span cla=
+ss=3D&quot;muted&quot;&gt;score +0.076 =C2=B7 32 days&lt;/span&gt;&lt;div&g=
+t;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RHR=
+: d +1.55 =C2=B7 p 0.008 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span cl=
+ass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +1.69 =C2=
+=B7 p 0.004 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d +1.4 =C2=B7 p 0.025=
+ =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow goo=
+d&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +1.1 =C2=B7 p 0.069 =C2=B7 same da=
+y&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; RT: d +1.04 =C2=B7 p 0.118 =C2=B7 day after&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&=
+quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.85 =C2=B7 p 0.161 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.83 =C2=B7 p 0.173 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=
+=920.03 =C2=B7 p 0.968 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; Awake%: d =E2=88=920.28 =C2=B7 p 0.655 =C2=B7 same day&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot=
+;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=920.76 =C2=B7 p 0.294 =C2=B7 same=
+ day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.97 =C2=B7 p 0.108 =C2=B7 day after&=
+lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; TD: d =E2=88=921.09 =C2=B7 p 0.097 =C2=B7 day after&lt;/di=
+v&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;=
+/span&gt; REM%: d =E2=88=921.21 =C2=B7 p 0.043 =C2=B7 day after&lt;/div&gt;=
+&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span=
+&gt; DEEP%: d =E2=88=921.38 =C2=B7 p 0.020 =C2=B7 same day&lt;/div&gt;&lt;d=
+iv&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; =
+MOOD: d =E2=88=921.88 =C2=B7 p &lt;0.001 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">instant coffee</spa=
+n><span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0=
+.08</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:12.3867=
+3873502601%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 5</span=
+> RHR, SS, MEMORY =C2=B7 <span class=3D"down">=E2=96=BC 5</span> MOOD, DEEP=
+%, REM%</span><span>32 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"wim hof" data-tip=3D"&lt;b&gt;wim hof&lt;/b&gt; &lt;span class=3D&quot;mut=
+ed&quot;&gt;score +0.075 =C2=B7 13 days&lt;/span&gt;&lt;div&gt;&lt;span cla=
+ss=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d +1.11 =
+=C2=B7 p 0.045 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quo=
+t;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.79 =C2=B7 p 0.02=
+2 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow go=
+od&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +0.69 =C2=B7 p 0.127 =C2=B7 day af=
+ter&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.79 =C2=B7 p 0.173 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RHR: d +0.42 =
+=C2=B7 p 0.235 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+SS: d +0.42 =C2=B7 p 0.240 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&l=
+t;/span&gt; HI: d +0.11 =C2=B7 p 0.764 =C2=B7 same day&lt;/div&gt;&lt;div c=
+lass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.12 =C2=B7 p 0.746 =C2=B7 same day=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TD: d =E2=88=920.42 =C2=B7 p 0.5=
+06 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=
+=88=920.33 =C2=B7 p 0.364 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;=
+/span&gt; TtSS: d =E2=88=920.42 =C2=B7 p 0.239 =C2=B7 day after&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&q=
+uot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=920.43 =C2=B7 p 0.228 =C2=B7 =
+day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.44 =
+=C2=B7 p 0.216 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MO=
+OD: d =E2=88=920.45 =C2=B7 p 0.204 =C2=B7 day after&lt;/div&gt;&lt;div clas=
+s=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; Awake%: d =E2=88=920.47 =C2=B7 p 0.189 =C2=B7 day after=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=920.76 =C2=B7 p 0.=
+294 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">wim hof</span><span=
+ class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.08</sp=
+an></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:12.2094=
+17211902897%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 3</span=
+> MEMORY, HRV, WE</span><span>13 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"banana" data-tip=3D"&lt;b&gt;banana&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score +0.067 =C2=B7 12 days&lt;/span&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +1.07 =C2=B7=
+ p 0.001 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.54 =C2=B7 p 0.130 =C2=
+=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.57 =C2=B7 =
+p 0.343 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&l=
+t;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d=
+ +0.43 =C2=B7 p 0.250 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/sp=
+an&gt; WE: d +0.47 =C2=B7 p 0.312 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; HI: d +0.4 =C2=B7 p 0.286 =C2=B7 day after&lt;/div&gt;&=
+lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&q=
+uot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.38 =C2=B7 p 0.288 =C2=B7 same d=
+ay&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +0.31 =C2=B7 p 0.392 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d +0.33 =
+=C2=B7 p 0.585 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+RHR: d +0.19 =C2=B7 p 0.599 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt=
+;/span&gt; REMs: d =E2=88=920.21 =C2=B7 p 0.562 =C2=B7 same day&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&q=
+uot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.26 =C2=B7 p 0.495 =C2=B7 =
+day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TD: d =E2=88=920.35 =C2=
+=B7 p 0.568 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: =
+d =E2=88=920.67 =C2=B7 p 0.329 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;s=
+pan class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =
+=E2=88=920.57 =C2=B7 p 0.107 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=
+=88=920.66 =C2=B7 p 0.061 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">banana</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.07</spa=
+n></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:10.9590=
+64984412725%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> HRV, REM% =C2=B7 <span class=3D"down">=E2=96=BC 2</span> DEEP%, HEALTH</s=
+pan><span>12 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"sweet pastry" data-tip=3D"&lt;b&gt;sweet pastry&lt;/b&gt; &lt;span class=
+=3D&quot;muted&quot;&gt;score +0.023 =C2=B7 12 days&lt;/span&gt;&lt;div&gt;=
+&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMOR=
+Y: d +1.2 =C2=B7 p 0.064 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span cla=
+ss=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.55 =
+=C2=B7 p 0.125 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; W=
+E: d +0.52 =C2=B7 p 0.268 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;=
+/span&gt; DEEP%: d +0.42 =C2=B7 p 0.239 =C2=B7 same day&lt;/div&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt=
+;=E2=96=B2&lt;/span&gt; SS: d +0.37 =C2=B7 p 0.303 =C2=B7 same day&lt;/div&=
+gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow go=
+od&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.34 =C2=B7 p 0.348 =C2=B7 sa=
+me day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&qu=
+ot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.22 =C2=B7 p 0.=
+539 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.2=
+1 =C2=B7 p 0.572 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt;=
+ HI: d =E2=88=920.01 =C2=B7 p 0.984 =C2=B7 day after&lt;/div&gt;&lt;div cla=
+ss=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; TtSS: d =E2=88=920.21 =C2=B7 p 0.571 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RT: d =E2=88=920.43 =C2=B7 p 0.494=
+ =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span =
+class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=
+=920.33 =C2=B7 p 0.361 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; REM%: d =E2=88=920.42 =C2=B7 p 0.247 =C2=B7 same day&lt;/div&gt;&lt;d=
+iv class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&=
+gt;=E2=96=BC&lt;/span&gt; TD: d =E2=88=920.86 =C2=B7 p 0.162 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; HRV: d =E2=88=920.72 =C2=B7 p 0.042 =C2=B7 same day&lt;=
+/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">sweet pastry</span>=
+<span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.0=
+2</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:3.79652=
+07633339006%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> MEMORY, Awake% =C2=B7 <span class=3D"down">=E2=96=BC 1</span> HRV</span><=
+span>12 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"potato chips" data-tip=3D"&lt;b&gt;potato chips&lt;/b&gt; &lt;span class=
+=3D&quot;muted&quot;&gt;score +0.022 =C2=B7 5 days&lt;/span&gt;&lt;div&gt;&=
+lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: =
+d +1.03 =C2=B7 p 0.030 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span clas=
+s=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.94 =C2=
+=B7 p 0.050 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.9 =C2=B7 p 0.062 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; WE: d +0.76 =C2=
+=B7 p 0.232 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awak=
+e%: d +0.57 =C2=B7 p 0.242 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&l=
+t;/span&gt; TD: d +0.66 =C2=B7 p 0.337 =C2=B7 same day&lt;/div&gt;&lt;div c=
+lass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; SS: d +0.5 =C2=B7 p 0.311 =C2=B7 day after&lt;/div&g=
+t;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow goo=
+d&quot;&gt;=E2=96=B2&lt;/span&gt; HI: d +0.36 =C2=B7 p 0.470 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.33 =C2=B7 p 0.637 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.25 =
+=C2=B7 p 0.611 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+PSI: d +0 =C2=B7 p 1.000 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;m=
+uted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/s=
+pan&gt; HRV: d =E2=88=920.21 =C2=B7 p 0.667 =C2=B7 day after&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot=
+;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.44 =C2=B7 p 0.369 =C2=B7 s=
+ame day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=88=920.88 =
+=C2=B7 p 0.192 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot=
+;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=921.1 =C2=B7 p=
+ 0.020 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-ar=
+row bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=921.15 =C2=B7 p 0.0=
+15 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">potato chips</span>=
+<span class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.0=
+2</span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:3.56919=
+31207494925%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 3</span=
+> MOOD, REMs, REM% =C2=B7 <span class=3D"down">=E2=96=BC 2</span> DEEP%, RH=
+R</span><span>5 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"milk" data-tip=3D"&lt;b&gt;milk&lt;/b&gt; &lt;span class=3D&quot;muted&quo=
+t;&gt;score +0.022 =C2=B7 23 days&lt;/span&gt;&lt;div&gt;&lt;span class=3D&=
+quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d +1.27 =C2=B7 =
+p 0.027 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-a=
+rrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.97 =C2=B7 p 0.107 =C2=B7=
+ day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good&quot=
+;&gt;=E2=96=B2&lt;/span&gt; RHR: d +0.63 =C2=B7 p 0.088 =C2=B7 day after&lt=
+;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=
+=B2&lt;/span&gt; DEEP%: d +0.59 =C2=B7 p 0.106 =C2=B7 day after&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&=
+quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.36 =C2=B7 p 0.326 =C2=B7 same da=
+y&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;im=
+p-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.25 =C2=B7 p 0.497 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.25=
+ =C2=B7 p 0.506 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quo=
+t;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt;=
+ SS: d +0.21 =C2=B7 p 0.554 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&l=
+t;/span&gt; Awake%: d +0.15 =C2=B7 p 0.684 =C2=B7 day after&lt;/div&gt;&lt;=
+div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot=
+;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.13 =C2=B7 p 0.720 =C2=B7 same day&lt=
+;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-ar=
+row bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.13 =C2=B7 p 0.719 =
+=C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=920=
+.3 =C2=B7 p 0.544 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&q=
+uot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt=
+; PSI: d =E2=88=920.67 =C2=B7 p 0.329 =C2=B7 day after&lt;/div&gt;&lt;div c=
+lass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; TD: d =E2=88=920.73 =C2=B7 p 0.237 =C2=B7 day after&=
+lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; REM%: d =E2=88=920.7 =C2=B7 p 0.056 =C2=B7 day after&lt;/d=
+iv&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt=
+;/span&gt; MOOD: d =E2=88=921.08 =C2=B7 p 0.001 =C2=B7 same day&lt;/div&gt;=
+">
+        <span class=3D"imp-top"><span class=3D"imp-tag">milk</span><span cl=
+ass=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.02</span>=
+</span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:3.54221=
+85325702107%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 4</span=
+> MEMORY, RT, RHR =C2=B7 <span class=3D"down">=E2=96=BC 2</span> MOOD, REM%=
+</span><span>23 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev1" data-act=3D"go-tag" data-v=3D=
+"white tea" data-tip=3D"&lt;b&gt;white tea&lt;/b&gt; &lt;span class=3D&quot=
+;muted&quot;&gt;score +0.019 =C2=B7 13 days&lt;/span&gt;&lt;div&gt;&lt;span=
+ class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; Awake%: d +0.=
+68 =C2=B7 p 0.057 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&=
+quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.63 =C2=B7 p =
+0.079 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d=
+ +0.68 =C2=B7 p 0.322 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mute=
+d&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/spa=
+n&gt; TtSS: d +0.38 =C2=B7 p 0.302 =C2=B7 day after&lt;/div&gt;&lt;div clas=
+s=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; HEALTH: d +0.32 =C2=B7 p 0.375 =C2=B7 day after&lt;/div=
+&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow g=
+ood&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.37 =C2=B7 p 0.601 =C2=B7 same =
+day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.17 =C2=B7 p 0.641=
+ =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span =
+class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +0.16 =
+=C2=B7 p 0.656 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; T=
+D: d +0.05 =C2=B7 p 0.939 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; RHR: d =E2=88=920.02 =C2=B7 p 0.963 =C2=B7 same day&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot=
+;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=920.46 =C2=B7 p 0.339 =C2=B7 day a=
+fter&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot=
+;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=920.39 =C2=B7=
+ p 0.275 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&l=
+t;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =
+=E2=88=920.4 =C2=B7 p 0.262 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span =
+class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=
+=920.51 =C2=B7 p 0.147 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.62 =
+=C2=B7 p 0.076 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">white tea</span><sp=
+an class=3D"imp-eff"><span class=3D"imp-arrow good">=E2=96=B2</span>+0.02</=
+span></span>
+        <span class=3D"imp-bar"><span class=3D"good" style=3D"width:3.08326=
+53341654073%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> Awake%, MOOD =C2=B7 <span class=3D"down">=E2=96=BC 2</span> HI, DEEP%</sp=
+an><span>13 days =C2=B7 15 metrics</span></span>
+      </button>
+      </section><section class=3D"card imp-col">
+        <header><h2><span class=3D"imp-arrow bad">=E2=96=BC</span> Worst fo=
+r me</h2>
+        <p class=3D"sub">35 tags =C2=B7 top 15 shown</p></header>
+        <button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D"carrot=
+" data-tip=3D"&lt;b&gt;carrot&lt;/b&gt; &lt;span class=3D&quot;muted&quot;&=
+gt;score =E2=88=920.615 =C2=B7 3 days&lt;/span&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +1.08 =C2=
+=B7 p 0.073 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV:=
+ d +0.82 =C2=B7 p 0.177 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mu=
+ted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/s=
+pan&gt; DEEP%: d +0.51 =C2=B7 p 0.411 =C2=B7 same day&lt;/div&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.42 =C2=B7 p 0.495 =C2=B7 day af=
+ter&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; REMs: d =E2=88=920.88 =C2=B7 p 0.148 =C2=B7 same day&lt=
+;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC=
+&lt;/span&gt; HI: d =E2=88=921.16 =C2=B7 p 0.053 =C2=B7 day after&lt;/div&g=
+t;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/sp=
+an&gt; RHR: d =E2=88=921.3 =C2=B7 p 0.029 =C2=B7 same day&lt;/div&gt;&lt;di=
+v&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; M=
+OOD: d =E2=88=921.35 =C2=B7 p 0.023 =C2=B7 day after&lt;/div&gt;&lt;div&gt;=
+&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =
+=E2=88=921.61 =C2=B7 p 0.006 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=
+=88=922.06 =C2=B7 p &lt;0.001 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;sp=
+an class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=
+=88=921.52 =C2=B7 p 0.010 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">carrot</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.=
+61</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:100%"></=
+span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> TtSS =C2=B7 <span class=3D"down">=E2=96=BC 7</span> SS, Awake%, REM%</spa=
+n><span>3 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"onion" data-tip=3D"&lt;b&gt;onion&lt;/b&gt; &lt;span class=3D&quot;muted&q=
+uot;&gt;score =E2=88=920.615 =C2=B7 3 days&lt;/span&gt;&lt;div&gt;&lt;span =
+class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +1.08 =
+=C2=B7 p 0.073 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; H=
+RV: d +0.82 =C2=B7 p 0.177 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt=
+;/span&gt; DEEP%: d +0.51 =C2=B7 p 0.411 =C2=B7 same day&lt;/div&gt;&lt;div=
+ class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt=
+;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.42 =C2=B7 p 0.495 =C2=B7 day a=
+fter&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.88 =C2=B7 p 0.148 =C2=B7 same day=
+&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; HI: d =E2=88=921.16 =C2=B7 p 0.053 =C2=B7 day after&lt;/di=
+v&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;=
+/span&gt; RHR: d =E2=88=921.3 =C2=B7 p 0.029 =C2=B7 same day&lt;/div&gt;&lt=
+;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt=
+; MOOD: d =E2=88=921.35 =C2=B7 p 0.023 =C2=B7 day after&lt;/div&gt;&lt;div&=
+gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS:=
+ d =E2=88=921.61 =C2=B7 p 0.006 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;s=
+pan class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =
+=E2=88=922.06 =C2=B7 p &lt;0.001 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt=
+;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =
+=E2=88=921.52 =C2=B7 p 0.010 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">onion</span><span c=
+lass=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.6=
+1</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:100%"></=
+span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> TtSS =C2=B7 <span class=3D"down">=E2=96=BC 7</span> SS, Awake%, REM%</spa=
+n><span>3 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"kefir" data-tip=3D"&lt;b&gt;kefir&lt;/b&gt; &lt;span class=3D&quot;muted&q=
+uot;&gt;score =E2=88=920.304 =C2=B7 3 days&lt;/span&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&l=
+t;/span&gt; HRV: d +0.62 =C2=B7 p 0.311 =C2=B7 same day&lt;/div&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt=
+;=E2=96=B2&lt;/span&gt; RHR: d +0.45 =C2=B7 p 0.465 =C2=B7 same day&lt;/div=
+&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow g=
+ood&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.28 =C2=B7 p 0.645 =C2=B7 sam=
+e day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quo=
+t;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.21 =C2=B7 p 0.=
+729 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=
+=920.17 =C2=B7 p 0.780 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; HEALTH: d =E2=88=920.41 =C2=B7 p 0.502 =C2=B7 same day&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot=
+;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.46 =C2=B7 p 0.451 =C2=B7 sam=
+e day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.93 =C2=B7 p 0.126 =C2=B7 same day=
+&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; HI: d =E2=88=921.17 =C2=B7 p 0.050 =C2=B7 same day&lt;/div=
+&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; REM%: d =E2=88=921.19 =C2=B7 p 0.047 =C2=B7 same day&lt;/div&gt;&l=
+t;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&g=
+t; Awake%: d =E2=88=921.62 =C2=B7 p 0.005 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">kefir</span><span c=
+lass=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.3=
+</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:49.50265=
+049227386%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 4</sp=
+an> Awake%, REM%, HI</span><span>3 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"potato" data-tip=3D"&lt;b&gt;potato&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score =E2=88=920.233 =C2=B7 4 days&lt;/span&gt;&lt;div&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +1.16=
+ =C2=B7 p 0.026 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+TD: d +0.92 =C2=B7 p 0.171 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt=
+;/span&gt; HI: d +0.74 =C2=B7 p 0.166 =C2=B7 same day&lt;/div&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; TtSS: d +0.52 =C2=B7 p 0.336 =C2=B7 same day&lt;/div=
+&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow g=
+ood&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.51 =C2=B7 p 0.463 =C2=B7 same =
+day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.28 =C2=B7 p 0.61=
+1 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=
+=88=920.36 =C2=B7 p 0.606 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; RHR: d =E2=88=920.7 =C2=B7 p 0.194 =C2=B7 same day&lt;/div&gt;&lt;=
+div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;=
+&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.77 =C2=B7 p 0.150 =C2=B7 day =
+after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quo=
+t;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.77 =C2=
+=B7 p 0.150 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=921.15 =C2=B7 p =
+0.097 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arr=
+ow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.98 =C2=B7 p 0.063=
+ =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow ba=
+d&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=921.04 =C2=B7 p 0.049 =C2=B7=
+ same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&=
+gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=921.2 =C2=B7 p 0.021 =C2=B7 day af=
+ter&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; Awake%: d =E2=88=922.09 =C2=B7 p &lt;0.001 =C2=B7 day a=
+fter&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">potato</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.=
+23</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:37.83683=
+9078827424%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> HRV =C2=B7 <span class=3D"down">=E2=96=BC 5</span> Awake%, REM%, SS</span=
+><span>4 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"white bread" data-tip=3D"&lt;b&gt;white bread&lt;/b&gt; &lt;span class=3D&=
+quot;muted&quot;&gt;score =E2=88=920.223 =C2=B7 20 days&lt;/span&gt;&lt;div=
+ class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&g=
+t;=E2=96=B2&lt;/span&gt; WE: d +0.46 =C2=B7 p 0.316 =C2=B7 day after&lt;/di=
+v&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow =
+good&quot;&gt;=E2=96=B2&lt;/span&gt; SS: d +0.03 =C2=B7 p 0.929 =C2=B7 day =
+after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quo=
+t;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.02 =C2=B7 p 0.9=
+44 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TD: d =E2=88=
+=920.05 =C2=B7 p 0.939 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;mu=
+ted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/sp=
+an&gt; MOOD: d =E2=88=920.17 =C2=B7 p 0.634 =C2=B7 day after&lt;/div&gt;&lt=
+;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot=
+;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.19 =C2=B7 p 0.592 =C2=B7 same =
+day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; DEEP%: d =E2=88=920.3 =C2=B7 =
+p 0.386 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt=
+;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =
+=E2=88=920.43 =C2=B7 p 0.212 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; REM%: d =E2=88=920.47 =C2=B7 p 0.170 =C2=B7 same day&lt;/div&gt=
+;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; TtSS: d =E2=88=920.5 =C2=B7 p 0.147 =C2=B7 same day&lt;/div&gt;&lt;di=
+v&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; A=
+wake%: d =E2=88=920.63 =C2=B7 p 0.062 =C2=B7 same day&lt;/div&gt;&lt;div&gt=
+;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALT=
+H: d =E2=88=920.68 =C2=B7 p 0.048 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&l=
+t;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =
+=E2=88=920.68 =C2=B7 p 0.044 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=
+=88=921.2 =C2=B7 p 0.064 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RT: d =E2=88=921.=
+27 =C2=B7 p 0.049 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">white bread</span><=
+span class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=
+=920.22</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:36.33799=
+256960974%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 6</sp=
+an> RT, MEMORY, RHR</span><span>20 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"egg" data-tip=3D"&lt;b&gt;egg&lt;/b&gt; &lt;span class=3D&quot;muted&quot;=
+&gt;score =E2=88=920.223 =C2=B7 5 days&lt;/span&gt;&lt;div&gt;&lt;span clas=
+s=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.98 =C2=
+=B7 p 0.040 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: =
+d +0.86 =C2=B7 p 0.162 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/sp=
+an&gt; TD: d +0.66 =C2=B7 p 0.290 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; DEEP%: d +0.54 =C2=B7 p 0.271 =C2=B7 same day&lt;/div&g=
+t;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow goo=
+d&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.3 =C2=B7 p 0.575 =C2=B7 day aft=
+er&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;i=
+mp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MEMORY: d +0.16 =C2=B7 p 0.82=
+0 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span=
+ class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=
+=88=920.27 =C2=B7 p 0.618 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;=
+/span&gt; WE: d =E2=88=920.44 =C2=B7 p 0.500 =C2=B7 day after&lt;/div&gt;&l=
+t;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quo=
+t;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.49 =C2=B7 p 0.314 =C2=B7 sa=
+me day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&qu=
+ot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.67 =C2=
+=B7 p 0.210 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.72 =C2=B7=
+ p 0.138 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-a=
+rrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.79 =C2=B7 p 0.102=
+ =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad=
+&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=920.8 =C2=B7 p 0.098 =C2=B7 =
+same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&g=
+t;=E2=96=BC&lt;/span&gt; SS: d =E2=88=920.87 =C2=B7 p 0.070 =C2=B7 same day=
+&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; REM%: d =E2=88=921.41 =C2=B7 p 0.006 =C2=B7 day after&lt;/=
+div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; PSI: d =E2=88=921.67 =C2=B7 p 0.001 =C2=B7 same day&lt;/div&gt;=
+">
+        <span class=3D"imp-top"><span class=3D"imp-tag">egg</span><span cla=
+ss=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.22<=
+/span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:36.29475=
+23425231%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> TtSS =C2=B7 <span class=3D"down">=E2=96=BC 6</span> PSI, REM%, SS</span><=
+span>5 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev1" data-act=3D"go-tag" data-v=3D=
+"mozzarella" data-tip=3D"&lt;b&gt;mozzarella&lt;/b&gt; &lt;span class=3D&qu=
+ot;muted&quot;&gt;score =E2=88=920.214 =C2=B7 3 days&lt;/span&gt;&lt;div cl=
+ass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; HRV: d +0.62 =C2=B7 p 0.313 =C2=B7 day after&lt;/div=
+&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow g=
+ood&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.48 =C2=B7 p 0.432 =C2=B7 da=
+y after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TD: d +0.14 =C2=B7 p 0.8=
+42 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; RT: d +0.06 =
+=C2=B7 p 0.932 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RH=
+R: d =E2=88=920.3 =C2=B7 p 0.627 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; REMs: d =E2=88=920.42 =C2=B7 p 0.495 =C2=B7 day after&l=
+t;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-a=
+rrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=920.5 =C2=B7 p 0.=
+419 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;sp=
+an class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=
+=88=920.53 =C2=B7 p 0.391 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; TtSS: d =E2=88=920.68 =C2=B7 p 0.268 =C2=B7 day after&lt;/div&gt;&=
+lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&qu=
+ot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=920.72 =C2=B7 p 0.242 =C2=B7 day=
+ after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&qu=
+ot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=88=920.88 =
+=C2=B7 p 0.192 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HE=
+ALTH: d =E2=88=920.85 =C2=B7 p 0.162 =C2=B7 same day&lt;/div&gt;&lt;div&gt;=
+&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d=
+ =E2=88=921.15 =C2=B7 p 0.097 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;spa=
+n class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=
+=88=921.17 =C2=B7 p 0.052 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=921=
+.17 =C2=B7 p 0.050 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">mozzarella</span><s=
+pan class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=
+=920.21</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:34.76199=
+3737480914%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 3</sp=
+an> HI, REM%, PSI</span><span>3 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"pumpkin seed" data-tip=3D"&lt;b&gt;pumpkin seed&lt;/b&gt; &lt;span class=
+=3D&quot;muted&quot;&gt;score =E2=88=920.212 =C2=B7 3 days&lt;/span&gt;&lt;=
+div&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt=
+; TD: d +1.18 =C2=B7 p 0.070 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span=
+ class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +1 =
+=C2=B7 p 0.098 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; R=
+T: d +0.89 =C2=B7 p 0.188 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;=
+/span&gt; DEEP%: d +0.43 =C2=B7 p 0.482 =C2=B7 same day&lt;/div&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt=
+;=E2=96=B2&lt;/span&gt; MEMORY: d +0.16 =C2=B7 p 0.820 =C2=B7 same day&lt;/=
+div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arro=
+w good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.12 =C2=B7 p 0.852 =C2=B7 s=
+ame day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&q=
+uot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.45 =C2=
+=B7 p 0.461 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD:=
+ d =E2=88=920.53 =C2=B7 p 0.391 =C2=B7 same day&lt;/div&gt;&lt;div class=3D=
+&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; REM%: d =E2=88=920.57 =C2=B7 p 0.355 =C2=B7 same day&lt;/d=
+iv&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow=
+ bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.85 =C2=B7 p 0.162=
+ =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad=
+&quot;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.88 =C2=B7 p 0.148 =C2=
+=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quo=
+t;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=920.99 =C2=B7 p 0.102 =C2=B7 =
+same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&g=
+t;=E2=96=BC&lt;/span&gt; SS: d =E2=88=921.25 =C2=B7 p 0.036 =C2=B7 same day=
+&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; RHR: d =E2=88=921.3 =C2=B7 p 0.029 =C2=B7 same day&lt;/div=
+&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; PSI: d =E2=88=921.53 =C2=B7 p 0.015 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">pumpkin seed</span>=
+<span class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=
+=88=920.21</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:34.50120=
+16410036%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 2</span=
+> TD, TtSS =C2=B7 <span class=3D"down">=E2=96=BC 5</span> PSI, RHR, SS</spa=
+n><span>3 days =C2=B7 15 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"tomato" data-tip=3D"&lt;b&gt;tomato&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score =E2=88=920.175 =C2=B7 5 days&lt;/span&gt;&lt;div class=3D&q=
+uot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2=
+&lt;/span&gt; TD: d +0.92 =C2=B7 p 0.171 =C2=B7 day after&lt;/div&gt;&lt;di=
+v class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&=
+gt;=E2=96=B2&lt;/span&gt; WE: d +0.63 =C2=B7 p 0.274 =C2=B7 day after&lt;/d=
+iv&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow=
+ good&quot;&gt;=E2=96=B2&lt;/span&gt; HRV: d +0.55 =C2=B7 p 0.257 =C2=B7 sa=
+me day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&qu=
+ot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.29 =C2=B7 p 0.=
+552 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; HI: d +0.13 =
+=C2=B7 p 0.789 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RT=
+: d =E2=88=920.1 =C2=B7 p 0.884 =C2=B7 same day&lt;/div&gt;&lt;div class=3D=
+&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; RHR: d =E2=88=920.27 =C2=B7 p 0.586 =C2=B7 day after&lt;/d=
+iv&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow=
+ bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=920.38 =C2=B7 p 0.610 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=
+=920.43 =C2=B7 p 0.381 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;mu=
+ted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/sp=
+an&gt; TtSS: d =E2=88=920.6 =C2=B7 p 0.222 =C2=B7 same day&lt;/div&gt;&lt;d=
+iv class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&=
+gt;=E2=96=BC&lt;/span&gt; MEMORY: d =E2=88=920.88 =C2=B7 p 0.192 =C2=B7 sam=
+e day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.73 =C2=B7 p 0.135 =C2=B7 day af=
+ter&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; SS: d =E2=88=920.75 =C2=B7 p 0.123 =C2=B7 day after&lt;=
+/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&=
+lt;/span&gt; DEEP%: d =E2=88=921 =C2=B7 p 0.037 =C2=B7 same day&lt;/div&gt;=
+&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span=
+&gt; REMs: d =E2=88=921.01 =C2=B7 p 0.035 =C2=B7 day after&lt;/div&gt;&lt;d=
+iv&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; =
+REM%: d =E2=88=921.02 =C2=B7 p 0.033 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">tomato</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.=
+18</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:28.47739=
+716430378%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 5</sp=
+an> REM%, REMs, DEEP%</span><span>5 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"pasta" data-tip=3D"&lt;b&gt;pasta&lt;/b&gt; &lt;span class=3D&quot;muted&q=
+uot;&gt;score =E2=88=920.157 =C2=B7 5 days&lt;/span&gt;&lt;div&gt;&lt;span =
+class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.73=
+ =C2=B7 p 0.135 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; =
+TtSS: d +0.52 =C2=B7 p 0.285 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; HEALTH: d =E2=88=920.16 =C2=B7 p 0.745 =C2=B7 same day&lt;/div&=
+gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow ba=
+d&quot;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.23 =C2=B7 p 0.644 =C2=
+=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=
+=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=920.25 =
+=C2=B7 p 0.608 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI=
+: d =E2=88=920.33 =C2=B7 p 0.503 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; Awake%: d =E2=88=920.43 =C2=B7 p 0.381 =C2=B7 day after=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=920.56 =C2=B7 p 0.3=
+87 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=
+=920.67 =C2=B7 p 0.166 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=
+=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=920.77=
+ =C2=B7 p 0.114 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&qu=
+ot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=920.96 =C2=
+=B7 p 0.045 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;i=
+mp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=921.02 =C2=B7 p=
+ 0.033 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">pasta</span><span c=
+lass=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.1=
+6</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:25.58059=
+945099298%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> DEEP% =C2=B7 <span class=3D"down">=E2=96=BC 3</span> MOOD, REM%, RHR</spa=
+n><span>5 days =C2=B7 12 metrics</span></span>
+      </button><button class=3D"imp-item ev1" data-act=3D"go-tag" data-v=3D=
+"butter" data-tip=3D"&lt;b&gt;butter&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score =E2=88=920.156 =C2=B7 4 days&lt;/span&gt;&lt;div class=3D&q=
+uot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2=
+&lt;/span&gt; RHR: d +0.46 =C2=B7 p 0.390 =C2=B7 same day&lt;/div&gt;&lt;di=
+v class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&=
+gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.35 =C2=B7 p 0.515 =C2=B7 same day&lt;=
+/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arr=
+ow good&quot;&gt;=E2=96=B2&lt;/span&gt; TtSS: d +0.32 =C2=B7 p 0.560 =C2=B7=
+ day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=
+=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.3=
+4 =C2=B7 p 0.534 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quo=
+t;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; =
+HEALTH: d =E2=88=920.44 =C2=B7 p 0.422 =C2=B7 day after&lt;/div&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=
+=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.65 =C2=B7 p 0.228 =C2=B7 day after&=
+lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-=
+arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=920.71 =C2=B7 p 0.18=
+8 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span =
+class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=
+=920.77 =C2=B7 p 0.150 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span clas=
+s=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=92=
+0.78 =C2=B7 p 0.146 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.78 =
+=C2=B7 p 0.146 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quo=
+t;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=920.8 =C2=B7=
+ p 0.137 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">butter</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.=
+16</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:25.38552=
+2196882768%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 3</sp=
+an> REM%, HRV, Awake%</span><span>4 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"sesame seed" data-tip=3D"&lt;b&gt;sesame seed&lt;/b&gt; &lt;span class=3D&=
+quot;muted&quot;&gt;score =E2=88=920.141 =C2=B7 8 days&lt;/span&gt;&lt;div =
+class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt=
+;=E2=96=B2&lt;/span&gt; REM%: d +0.54 =C2=B7 p 0.186 =C2=B7 day after&lt;/d=
+iv&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow=
+ good&quot;&gt;=E2=96=B2&lt;/span&gt; PSI: d +0.67 =C2=B7 p 0.329 =C2=B7 sa=
+me day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&qu=
+ot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; TD: d +0.59 =C2=B7 p 0.34=
+8 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span=
+ class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.4=
+2 =C2=B7 p 0.311 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt=
+; Awake%: d +0.39 =C2=B7 p 0.346 =C2=B7 day after&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=
+=96=B2&lt;/span&gt; HI: d +0.21 =C2=B7 p 0.618 =C2=B7 day after&lt;/div&gt;=
+&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&=
+quot;&gt;=E2=96=B2&lt;/span&gt; HEALTH: d +0.09 =C2=B7 p 0.818 =C2=B7 same =
+day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;=
+imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d =E2=88=920.19 =C2=B7 p=
+ 0.640 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=
+=88=920.24 =C2=B7 p 0.552 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;=
+muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/=
+span&gt; SS: d =E2=88=920.44 =C2=B7 p 0.277 =C2=B7 same day&lt;/div&gt;&lt;=
+div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;=
+&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.55 =C2=B7 p 0.176 =C2=B7 same=
+ day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot=
+;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TtSS: d =E2=88=920.55 =C2=B7=
+ p 0.176 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&=
+lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MEMORY:=
+ d =E2=88=920.83 =C2=B7 p 0.175 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;s=
+pan class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=
+=88=920.78 =C2=B7 p 0.053 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RT: d =E2=88=921=
+.11 =C2=B7 p 0.061 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=921.27 =C2=
+=B7 p 0.039 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">sesame seed</span><=
+span class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=
+=920.14</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:23.00083=
+9343831643%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 3</sp=
+an> WE, RT, MOOD</span><span>8 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev2" data-act=3D"go-tag" data-v=3D=
+"cream" data-tip=3D"&lt;b&gt;cream&lt;/b&gt; &lt;span class=3D&quot;muted&q=
+uot;&gt;score =E2=88=920.139 =C2=B7 3 days&lt;/span&gt;&lt;div class=3D&quo=
+t;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&l=
+t;/span&gt; MOOD: d +0.68 =C2=B7 p 0.270 =C2=B7 same day&lt;/div&gt;&lt;div=
+ class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&g=
+t;=E2=96=B2&lt;/span&gt; DEEP%: d +0.56 =C2=B7 p 0.366 =C2=B7 day after&lt;=
+/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arr=
+ow good&quot;&gt;=E2=96=B2&lt;/span&gt; REMs: d +0.37 =C2=B7 p 0.550 =C2=B7=
+ same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; REM%: d +0.32 =C2=B7 p=
+ 0.600 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;=
+span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TtSS: d =
+=E2=88=920.03 =C2=B7 p 0.956 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; Awake%: d =E2=88=920.18 =C2=B7 p 0.766 =C2=B7 day after&lt;/div=
+&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow b=
+ad&quot;&gt;=E2=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.41 =C2=B7 p 0.502 =
+=C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span cl=
+ass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.=
+45 =C2=B7 p 0.461 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&qu=
+ot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt;=
+ SS: d =E2=88=920.79 =C2=B7 p 0.196 =C2=B7 day after&lt;/div&gt;&lt;div&gt;=
+&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HRV: d=
+ =E2=88=921 =C2=B7 p 0.100 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=92=
+1.3 =C2=B7 p 0.029 =C2=B7 same day&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">cream</span><span c=
+lass=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.1=
+4</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:22.57399=
+2029352453%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 2</sp=
+an> RHR, HRV</span><span>3 days =C2=B7 11 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"kofola" data-tip=3D"&lt;b&gt;kofola&lt;/b&gt; &lt;span class=3D&quot;muted=
+&quot;&gt;score =E2=88=920.126 =C2=B7 8 days&lt;/span&gt;&lt;div class=3D&q=
+uot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2=
+&lt;/span&gt; TD: d +0.73 =C2=B7 p 0.237 =C2=B7 day after&lt;/div&gt;&lt;di=
+v class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&=
+gt;=E2=96=B2&lt;/span&gt; MOOD: d +0.47 =C2=B7 p 0.247 =C2=B7 day after&lt;=
+/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arr=
+ow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.31 =C2=B7 p 0.453 =C2=
+=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=
+=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; PSI: d +0.38 =C2=B7=
+ p 0.610 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&l=
+t;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; RT: d =
+=E2=88=920.19 =C2=B7 p 0.762 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; REMs: d =E2=88=920.18 =C2=B7 p 0.663 =C2=B7 same day&lt;/div&gt=
+;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&=
+quot;&gt;=E2=96=BC&lt;/span&gt; REM%: d =E2=88=920.26 =C2=B7 p 0.521 =C2=B7=
+ same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d =E2=88=920.27 =C2=
+=B7 p 0.510 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&g=
+t;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HEAL=
+TH: d =E2=88=920.29 =C2=B7 p 0.472 =C2=B7 same day&lt;/div&gt;&lt;div class=
+=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; SS: d =E2=88=920.32 =C2=B7 p 0.441 =C2=B7 same day&lt;/=
+div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arro=
+w bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=920.4 =C2=B7 p 0.328=
+ =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span c=
+lass=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; TtSS: d =E2=88=
+=920.43 =C2=B7 p 0.293 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;mut=
+ed&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/spa=
+n&gt; WE: d =E2=88=920.73 =C2=B7 p 0.198 =C2=B7 day after&lt;/div&gt;&lt;di=
+v&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; R=
+HR: d =E2=88=920.65 =C2=B7 p 0.110 =C2=B7 day after&lt;/div&gt;&lt;div clas=
+s=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; MEMORY: d =E2=88=920.83 =C2=B7 p 0.175 =C2=B7 same day&=
+lt;/div&gt;&lt;div&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=
+=BC&lt;/span&gt; HRV: d =E2=88=921.18 =C2=B7 p 0.002 =C2=B7 same day&lt;/di=
+v&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">kofola</span><span =
+class=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.=
+13</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:20.51830=
+0022267706%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"down">=E2=96=BC 2</sp=
+an> HRV, RHR</span><span>8 days =C2=B7 16 metrics</span></span>
+      </button><button class=3D"imp-item ev3" data-act=3D"go-tag" data-v=3D=
+"mayo" data-tip=3D"&lt;b&gt;mayo&lt;/b&gt; &lt;span class=3D&quot;muted&quo=
+t;&gt;score =E2=88=920.113 =C2=B7 6 days&lt;/span&gt;&lt;div&gt;&lt;span cl=
+ass=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; DEEP%: d +0.72 =
+=C2=B7 p 0.110 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;=
+&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt;/span&gt; R=
+T: d +0.66 =C2=B7 p 0.290 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot=
+;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=E2=96=B2&lt=
+;/span&gt; HRV: d +0.52 =C2=B7 p 0.255 =C2=B7 same day&lt;/div&gt;&lt;div c=
+lass=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow good&quot;&gt;=
+=E2=96=B2&lt;/span&gt; MEMORY: d +0.47 =C2=B7 p 0.461 =C2=B7 day after&lt;/=
+div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arro=
+w good&quot;&gt;=E2=96=B2&lt;/span&gt; TD: d +0.3 =C2=B7 p 0.638 =C2=B7 sam=
+e day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quo=
+t;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; REMs: d =E2=88=920.28 =C2=
+=B7 p 0.538 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt=
+;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; HI: d=
+ =E2=88=920.3 =C2=B7 p 0.510 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&qu=
+ot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&l=
+t;/span&gt; TtSS: d =E2=88=920.32 =C2=B7 p 0.491 =C2=B7 day after&lt;/div&g=
+t;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad=
+&quot;&gt;=E2=96=BC&lt;/span&gt; RHR: d =E2=88=920.33 =C2=B7 p 0.469 =C2=B7=
+ same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D=
+&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; MOOD: d =E2=88=920.39 =
+=C2=B7 p 0.393 =C2=B7 day after&lt;/div&gt;&lt;div class=3D&quot;muted&quot=
+;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; R=
+EM%: d =E2=88=920.43 =C2=B7 p 0.346 =C2=B7 same day&lt;/div&gt;&lt;div clas=
+s=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp-arrow bad&quot;&gt;=E2=
+=96=BC&lt;/span&gt; HEALTH: d =E2=88=920.47 =C2=B7 p 0.307 =C2=B7 day after=
+&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;span class=3D&quot;imp=
+-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; PSI: d =E2=88=920.76 =C2=B7 p 0.=
+294 =C2=B7 same day&lt;/div&gt;&lt;div class=3D&quot;muted&quot;&gt;&lt;spa=
+n class=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; WE: d =E2=88=
+=920.79 =C2=B7 p 0.217 =C2=B7 day after&lt;/div&gt;&lt;div&gt;&lt;span clas=
+s=3D&quot;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; SS: d =E2=88=920.82=
+ =C2=B7 p 0.065 =C2=B7 same day&lt;/div&gt;&lt;div&gt;&lt;span class=3D&quo=
+t;imp-arrow bad&quot;&gt;=E2=96=BC&lt;/span&gt; Awake%: d =E2=88=921.16 =C2=
+=B7 p 0.008 =C2=B7 day after&lt;/div&gt;">
+        <span class=3D"imp-top"><span class=3D"imp-tag">mayo</span><span cl=
+ass=3D"imp-eff"><span class=3D"imp-arrow bad">=E2=96=BC</span>=E2=88=920.11=
+</span></span>
+        <span class=3D"imp-bar"><span class=3D"bad" style=3D"width:18.40213=
+9658984417%"></span></span>
+        <span class=3D"imp-meta"><span><span class=3D"up">=E2=96=B2 1</span=
+> DEEP% =C2=B7 <span class=3D"down">=E2=96=BC 2</span> Awake%, SS</span><sp=
+an>6 days =C2=B7 16 metrics</span></span>
+      </button>
+      </section></div>
+      <div class=3D"center"><button class=3D"btn" data-act=3D"set" data-k=
+=3D"ovAll" data-v=3D"1">Show all tags</button></div>
+      <p class=3D"small muted">Score =3D average over metrics of (effect si=
+ze in SD, flipped so better is positive, capped at =C2=B11.5) =C3=97 reliab=
+ility, where reliability is 1 at p =E2=89=A4 0.01, 0.5 at p =3D 0.1 and fad=
+es to 0 as p approaches 1. So a tag needs effects that are both big and con=
+sistent to rank high; one lucky metric doesn't carry it. =E2=96=B2/=E2=96=
+=BC counts are metrics it clearly helps or hurts (p &lt; 0.15). Click a met=
+ric chip above to leave it out of the score. Hover a tag for the per-metric=
+ breakdown, click it for details. Tags need =E2=89=A53 days with and withou=
+t.</p></main>
+  <div id=3D"toast" class=3D"toast" role=3D"status" aria-live=3D"polite"></=
+div>
+  <div class=3D"dropveil" aria-hidden=3D"true"><div>Drop CSV to load</div><=
+/div>
 
-  <script src="js/stats.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/charts.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+
+
+<div class=3D"tip" role=3D"tooltip" style=3D"display: none; left: 366px; to=
+p: 321px;"><b>nutella</b> <span class=3D"muted">score +0.252 =C2=B7 3 days<=
+/span><div><span class=3D"imp-arrow good">=E2=96=B2</span> RHR: d +1.7 =C2=
+=B7 p 0.003 =C2=B7 same day</div><div><span class=3D"imp-arrow good">=E2=96=
+=B2</span> HEALTH: d +1.31 =C2=B7 p 0.027 =C2=B7 day after</div><div class=
+=3D"muted"><span class=3D"imp-arrow good">=E2=96=B2</span> REMs: d +0.78 =
+=C2=B7 p 0.199 =C2=B7 same day</div><div class=3D"muted"><span class=3D"imp=
+-arrow good">=E2=96=B2</span> REM%: d +0.59 =C2=B7 p 0.336 =C2=B7 same day<=
+/div><div class=3D"muted"><span class=3D"imp-arrow good">=E2=96=B2</span> T=
+tSS: d +0.35 =C2=B7 p 0.576 =C2=B7 day after</div><div class=3D"muted"><spa=
+n class=3D"imp-arrow good">=E2=96=B2</span> HI: d +0.27 =C2=B7 p 0.664 =C2=
+=B7 same day</div><div class=3D"muted"><span class=3D"imp-arrow good">=E2=
+=96=B2</span> MOOD: d +0.25 =C2=B7 p 0.689 =C2=B7 day after</div><div class=
+=3D"muted"><span class=3D"imp-arrow good">=E2=96=B2</span> Awake%: d +0.13 =
+=C2=B7 p 0.835 =C2=B7 day after</div><div class=3D"muted"><span class=3D"im=
+p-arrow bad">=E2=96=BC</span> DEEP%: d =E2=88=920.08 =C2=B7 p 0.901 =C2=B7 =
+same day</div><div class=3D"muted"><span class=3D"imp-arrow bad">=E2=96=BC<=
+/span> SS: d =E2=88=920.57 =C2=B7 p 0.351 =C2=B7 day after</div><div class=
+=3D"muted"><span class=3D"imp-arrow bad">=E2=96=BC</span> HRV: d =E2=88=920=
+.58 =C2=B7 p 0.347 =C2=B7 day after</div></div>
+
+
+</body></html>
+------MultipartBoundary--zqiu8ev08WtMjWyDH1dgtgBGBZc79SDU2Uq2NQcjMz----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-f6e397c6-0c89-42c9-84d8-61bf13259002@mhtml.blink
+
+@charset "utf-8";
+
+:root { color-scheme: light; --page: #f9f9f7; --surface: #fcfcfb; --surface=
+-2: #f3f2ee; --ink: #0b0b0b; --ink-2: #52514e; --muted: #6f6e69; --grid: #e=
+1e0d9; --base: #c3c2b7; --border: rgba(11, 11, 11, 0.10); --accent: #2a78d6=
+; --accent-ink: #ffffff; --s1: #2a78d6; --s2: #eb6834; --good: #3987e5; --b=
+ad: #e34948; --warn-bg: #fdf1d8; --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0=
+ 4px 16px rgba(0, 0, 0, 0.04); --r: 10px; }
+
+:root.dark { color-scheme: dark; --page: #0d0d0d; --surface: #1a1a19; --sur=
+face-2: #242422; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #9a9890; --grid=
+: #2c2c2a; --base: #383835; --border: rgba(255, 255, 255, 0.10); --accent: =
+#3987e5; --s1: #3987e5; --s2: #d95926; --good: #3987e5; --bad: #e66767; --w=
+arn-bg: #3a2f14; --shadow: none; }
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0px; }
+
+body { background: var(--page); color: var(--ink); font: 14px / 1.45 system=
+-ui, -apple-system, "Segoe UI", sans-serif; -webkit-font-smoothing: antiali=
+ased; }
+
+h1 { font-size: 18px; margin: 0px; letter-spacing: -0.01em; }
+
+h2 { font-size: 15px; margin: 0px; }
+
+h3 { font-size: 13px; margin: 16px 0px 6px; color: var(--ink-2); font-weigh=
+t: 600; }
+
+p { margin: 0px 0px 8px; }
+
+code { background: var(--surface-2); padding: 1px 4px; border-radius: 4px; =
+}
+
+.small { font-size: 12px; }
+
+.muted { color: var(--muted); }
+
+.b { font-weight: 700; }
+
+.nowrap { white-space: nowrap; }
+
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+
+.grow { flex: 1 1 0%; }
+
+.err { color: var(--bad); font-weight: 600; }
+
+.up { color: var(--good); }
+
+.down { color: var(--bad); }
+
+.top { display: flex; align-items: center; justify-content: space-between; =
+gap: 12px; padding: 14px 24px; background: var(--surface); border-bottom: 1=
+px solid var(--border); }
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand p { margin: 0px; }
+
+.logo { font-size: 26px; color: var(--accent); line-height: 1; }
+
+.top-actions { display: flex; gap: 8px; }
+
+.nav { display: flex; gap: 2px; padding: 0px 20px; background: var(--surfac=
+e); border-bottom: 1px solid var(--border); overflow-x: auto; scrollbar-wid=
+th: thin; position: sticky; top: 0px; z-index: 20; }
+
+.nav button { border-width: 0px 0px 2px; border-style: none none solid; bor=
+der-color: currentcolor currentcolor transparent; border-image: none; backg=
+round: none; color: var(--ink-2); font-style: inherit; font-variant: inheri=
+t; font-stretch: inherit; font-size: inherit; line-height: inherit; font-fa=
+mily: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; fon=
+t-kerning: inherit; font-feature-settings: inherit; font-variation-settings=
+: inherit; font-language-override: inherit; font-weight: 500; padding: 11px=
+ 12px; cursor: pointer; white-space: nowrap; }
+
+.nav button:hover:not(:disabled) { color: var(--ink); }
+
+.nav button.on { color: var(--ink); border-bottom-color: var(--accent); fon=
+t-weight: 600; }
+
+.nav button:disabled { opacity: 0.4; cursor: default; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: cen=
+ter; padding: 10px 24px; background: var(--page); border-bottom: 1px solid =
+var(--border); }
+
+.ctl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+.ctl-l { font-size: 12px; color: var(--muted); font-weight: 600; text-trans=
+form: uppercase; letter-spacing: 0.04em; }
+
+main { padding: 20px 24px 60px; max-width: 1400px; margin: 0px auto; }
+
+.btn { font-style: inherit; font-variant: inherit; font-weight: inherit; fo=
+nt-stretch: inherit; line-height: inherit; font-family: inherit; font-optic=
+al-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-=
+feature-settings: inherit; font-variation-settings: inherit; font-language-=
+override: inherit; font-size: 13px; padding: 6px 12px; border-radius: 8px; =
+cursor: pointer; border: 1px solid var(--border); background: var(--surface=
+); color: var(--ink); }
+
+.btn:hover:not(:disabled) { background: var(--surface-2); }
+
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-=
+color: transparent; }
+
+.btn.primary:hover { filter: brightness(1.08); background: var(--accent); }
+
+.btn.small { padding: 3px 8px; font-size: 12px; }
+
+.link { border: 0px; background: none; padding: 0px; font: inherit; color: =
+var(--ink); text-decoration-line: underline; text-decoration-thickness: ini=
+tial; text-decoration-style: initial; text-decoration-color: var(--base); t=
+ext-underline-offset: 3px; cursor: pointer; text-align: left; }
+
+.link:hover { text-decoration-color: var(--accent); }
+
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius=
+: 8px; overflow: hidden; background: var(--surface); }
+
+.seg button { border: 0px; background: none; color: var(--ink-2); font-styl=
+e: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inhe=
+rit; line-height: inherit; font-family: inherit; font-optical-sizing: inher=
+it; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings=
+: inherit; font-variation-settings: inherit; font-language-override: inheri=
+t; font-size: 13px; padding: 5px 11px; cursor: pointer; }
+
+.seg button + button { border-left: 1px solid var(--border); }
+
+.seg button.on { background: var(--accent); color: var(--accent-ink); }
+
+.chk { display: inline-flex; align-items: center; gap: 5px; font-size: 13px=
+; cursor: pointer; white-space: nowrap; }
+
+.chk input { accent-color: var(--accent); }
+
+select, input.num, input.search, textarea { font-style: inherit; font-varia=
+nt: inherit; font-weight: inherit; font-stretch: inherit; line-height: inhe=
+rit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: =
+inherit; font-kerning: inherit; font-feature-settings: inherit; font-variat=
+ion-settings: inherit; font-language-override: inherit; font-size: 13px; co=
+lor: var(--ink); background: var(--surface); border: 1px solid var(--border=
+); border-radius: 8px; padding: 5px 8px; }
+
+input.num { width: 60px; text-align: left; }
+
+input.search { min-width: 200px; }
+
+textarea { width: 100%; font-family: ui-monospace, Consolas, monospace; res=
+ize: vertical; }
+
+select:focus, input:focus, textarea:focus, button:focus-visible { outline: =
+2px solid var(--accent); outline-offset: 1px; }
+
+.chips, .taglist { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom:=
+ 14px; }
+
+.chip { font-style: inherit; font-variant: inherit; font-weight: inherit; f=
+ont-stretch: inherit; line-height: inherit; font-family: inherit; font-opti=
+cal-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font=
+-feature-settings: inherit; font-variation-settings: inherit; font-language=
+-override: inherit; font-size: 12px; padding: 4px 10px; border-radius: 999p=
+x; cursor: pointer; border: 1px solid var(--border); background: var(--surf=
+ace); color: var(--ink); }
+
+.chip:hover { background: var(--surface-2); }
+
+.chip.on { background: var(--accent); color: var(--accent-ink); border-colo=
+r: transparent; }
+
+.chip.on .muted { color: inherit; }
+
+.pill { font-size: 11px; padding: 1px 7px; border-radius: 999px; background=
+: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+
+.pill.warn { background: var(--warn-bg); color: var(--ink); }
+
+.toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; =
+margin: 4px 0px 12px; }
+
+.pickerbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap=
+; margin-bottom: 14px; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border=
+-radius: var(--r); padding: 16px 18px; margin-bottom: 16px; box-shadow: var=
+(--shadow); min-width: 0px; }
+
+.card > header { margin-bottom: 12px; }
+
+.card .sub { color: var(--ink-2); font-size: 13px; margin: 4px 0px 0px; max=
+-width: 900px; }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(10=
+0%, 420px), 1fr)); gap: 16px; }
+
+.two > .card { margin-bottom: 0px; }
+
+.two + .card, .two + .two { margin-top: 16px; }
+
+.two > div > h3:first-child { margin-top: 0px; }
+
+.note { background: var(--surface-2); border-radius: var(--r); padding: 12p=
+x 16px; margin-bottom: 16px; font-size: 13px; color: var(--ink-2); border-l=
+eft: 3px solid var(--accent); }
+
+.lead { font-size: 15px; margin: 12px 0px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(190p=
+x, 1fr)); gap: 12px; margin-bottom: 16px; }
+
+.tile { background: var(--surface); border: 1px solid var(--border); border=
+-radius: var(--r); padding: 12px 16px; box-shadow: var(--shadow); }
+
+.tile-l { font-size: 12px; color: var(--ink-2); }
+
+.tile-v { font-size: 24px; font-weight: 600; margin: 2px 0px; letter-spacin=
+g: -0.01em; }
+
+.tile-s { font-size: 12px; color: var(--muted); }
+
+.mgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190=
+px, 1fr)); gap: 10px; }
+
+.mcard { text-align: left; font: inherit; color: inherit; cursor: pointer; =
+display: flex; flex-direction: column; gap: 4px; background: var(--page); b=
+order: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+
+.mcard:hover { border-color: var(--accent); }
+
+.mcard-h { display: flex; justify-content: space-between; gap: 6px; align-i=
+tems: baseline; }
+
+.mcard-v { font-size: 20px; font-weight: 600; }
+
+.spark { width: 100%; height: 32px; }
+
+.tablewrap { overflow-x: auto; }
+
+.tablewrap.tall { max-height: 480px; overflow-y: auto; }
+
+.tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+
+.tbl.narrow { width: auto; min-width: 360px; }
+
+.tbl th { text-align: left; font-weight: 600; color: var(--ink-2); font-siz=
+e: 12px; padding: 6px 10px; border-bottom: 1px solid var(--base); position:=
+ sticky; top: 0px; background: var(--surface); z-index: 1; }
+
+.tbl th.num { text-align: right; }
+
+.tbl th.grp { text-align: center; border-bottom: 1px solid var(--grid); }
+
+.tbl td { padding: 6px 10px; border-bottom: 1px solid var(--grid); vertical=
+-align: top; }
+
+.tbl tr.clickable { cursor: pointer; }
+
+.tbl tbody tr:hover td { background: var(--surface-2); }
+
+.tbl tr.sel td { background: var(--surface-2); box-shadow: inset 0 0 0 0 va=
+r(--accent); }
+
+.tbl tr.sel td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+
+.effcell { white-space: nowrap; }
+
+.effcell .num { display: inline-block; min-width: 44px; margin-left: 6px; }
+
+.eff { display: inline-block; position: relative; width: 70px; height: 10px=
+; vertical-align: middle; background: linear-gradient(var(--base), var(--ba=
+se)) center / 1px 100% no-repeat; }
+
+.eff-bar { position: absolute; top: 1px; height: 8px; border-radius: 0px 3p=
+x 3px 0px; }
+
+.eff-bar.bad { border-radius: 3px 0px 0px 3px; }
+
+.eff-bar.good { background: var(--good); }
+
+.eff-bar.bad { background: var(--bad); }
+
+.eff-bar.faint { opacity: 0.35; }
+
+.heatwrap { overflow: auto; max-height: 72vh; border: 1px solid var(--borde=
+r); border-radius: 8px; }
+
+.heat { display: grid; gap: 2px; background: var(--surface); padding: 0px 2=
+px 2px 0px; min-width: max-content; }
+
+.hh { position: sticky; top: 0px; z-index: 2; background: var(--surface); f=
+ont-size: 12px; font-weight: 600; color: var(--ink-2); padding: 8px 4px 6px=
+; text-align: center; border-top: 0px; border-right: 0px; border-left: 0px;=
+ border-image: none; font-family: inherit; white-space: nowrap; border-bott=
+om: 1px solid var(--base); }
+
+.hh.col { cursor: pointer; }
+
+.hh.col:hover, .hh.col.on { color: var(--ink); }
+
+.hh.corner { left: 0px; z-index: 3; text-align: left; padding-left: 10px; }
+
+.hr { position: sticky; left: 0px; z-index: 1; background: var(--surface); =
+border: 0px; font-style: inherit; font-variant: inherit; font-weight: inher=
+it; font-stretch: inherit; line-height: inherit; font-family: inherit; font=
+-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit;=
+ font-feature-settings: inherit; font-variation-settings: inherit; font-lan=
+guage-override: inherit; font-size: 13px; color: var(--ink); text-align: le=
+ft; padding: 0px 8px 0px 10px; display: flex; justify-content: space-betwee=
+n; align-items: center; gap: 8px; cursor: pointer; min-height: 24px; white-=
+space: nowrap; }
+
+.hr span:first-child { overflow: hidden; text-overflow: ellipsis; }
+
+.hr:hover { text-decoration: underline; }
+
+.hr.static { cursor: default; }
+
+.hr.static:hover { text-decoration: none; }
+
+.hc { min-height: 24px; border-radius: 3px; font-size: 11px; font-weight: 6=
+00; display: flex; align-items: center; justify-content: center; cursor: po=
+inter; font-variant-numeric: tabular-nums; }
+
+.hc:hover { outline: 2px solid var(--ink); outline-offset: -1px; }
+
+.hc.na { background: repeating-linear-gradient(45deg, transparent 0 4px, va=
+r(--grid) 4px 5px); cursor: default; }
+
+.hc.na:hover { outline: 0px; }
+
+.legend { display: flex; align-items: center; gap: 8px; font-size: 12px; co=
+lor: var(--ink-2); margin-bottom: 10px; flex-wrap: wrap; }
+
+.ramp { display: inline-block; width: 160px; height: 10px; border-radius: 3=
+px; }
+
+.lg-sig { font-size: 11px; font-weight: 600; padding: 2px 6px; border-radiu=
+s: 3px; }
+
+.cal { display: flex; flex-wrap: wrap; gap: 3px; }
+
+.calday { width: 14px; height: 14px; border-radius: 3px; background: var(--=
+grid); }
+
+.calday.on { background: var(--s2); }
+
+.calday.na { background: transparent; border: 1px dashed var(--base); }
+
+.wds { display: grid; gap: 6px; }
+
+.wd { display: grid; grid-template-columns: 36px 1fr 52px 40px; gap: 8px; a=
+lign-items: center; font-size: 13px; }
+
+.hbar { height: 10px; background: var(--surface-2); border-radius: 3px; ove=
+rflow: hidden; }
+
+.hbar span { display: block; height: 100%; background: var(--s1); border-ra=
+dius: 0px 3px 3px 0px; }
+
+.exrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.exrow label { display: flex; align-items: center; gap: 6px; font-weight: 6=
+00; }
+
+.exrow select { max-width: 320px; }
+
+.drop { border: 2px dashed var(--base); border-radius: var(--r); padding: 2=
+4px; text-align: center; }
+
+.drop p { margin: 6px 0px; }
+
+.simlist { list-style: none; padding: 0px; margin: 0px; display: grid; gap:=
+ 6px; }
+
+.simlist li { display: flex; justify-content: space-between; gap: 8px; alig=
+n-items: center; font-size: 13px; }
+
+.dropveil { display: none; }
+
+body.dragging .dropveil { display: flex; position: fixed; inset: 0px; z-ind=
+ex: 100; align-items: center; justify-content: center; background: rgba(42,=
+ 120, 214, 0.12); border: 3px dashed var(--accent); font-size: 22px; font-w=
+eight: 600; pointer-events: none; }
+
+svg.chart { display: block; max-width: 100%; height: auto; overflow: visibl=
+e; }
+
+.chart text { font-size: 11px; fill: var(--muted); font-family: inherit; }
+
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+
+.chart .base { stroke: var(--base); stroke-width: 1; }
+
+.chart .lab { fill: var(--ink-2); font-size: 12px; }
+
+.chart .line { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-=
+linecap: round; }
+
+.chart .line.s1 { stroke: var(--s1); }
+
+.chart .line.thin { stroke-width: 1.5; opacity: 0.55; }
+
+.chart .line.avg { stroke: var(--ink-2); stroke-width: 2; }
+
+.chart .dot { stroke: var(--surface); stroke-width: 2; }
+
+.chart .dot.s1 { fill: var(--s1); }
+
+.chart .dot.s2 { fill: var(--s2); }
+
+.chart .hit { fill: transparent; }
+
+.chart .pt { cursor: default; }
+
+.chart .pt:hover .dot { stroke: var(--ink); stroke-width: 1.5; }
+
+.chart .fit { stroke: var(--ink-2); stroke-width: 2; opacity: 0.7; }
+
+.chart .cross { stroke: var(--base); stroke-width: 1; }
+
+.chart .hover-ring { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+
+.chart .overlay { fill: transparent; cursor: crosshair; }
+
+.chart .meanbar { stroke: var(--ink); stroke-width: 2; stroke-linecap: roun=
+d; }
+
+.chart .meanlab { fill: var(--ink-2); font-size: 11px; }
+
+.chart .empty { fill: var(--muted); font-size: 13px; }
+
+.chart .bar.good { fill: var(--good); }
+
+.chart .bar.bad { fill: var(--bad); }
+
+.chart .bar.faint { opacity: 0.35; }
+
+.chart .ci { stroke: var(--ink-2); stroke-width: 1.25; }
+
+.chart .rowhit { fill: transparent; }
+
+.chart .barrow:hover .rowhit { fill: var(--surface-2); }
+
+.chart .barrow.clickable { cursor: pointer; }
+
+.chart .rowlab { fill: var(--ink); font-size: 12px; }
+
+.chart .val { fill: var(--ink-2); font-size: 11px; font-variant-numeric: ta=
+bular-nums; }
+
+.tip { position: fixed; z-index: 200; display: none; max-width: 340px; poin=
+ter-events: none; background: var(--surface); color: var(--ink); border: 1p=
+x solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12=
+px; line-height: 1.5; box-shadow: rgba(0, 0, 0, 0.18) 0px 6px 24px; }
+
+.tip .tags-tip { color: var(--ink-2); margin-top: 4px; }
+
+.toast { position: fixed; bottom: 20px; left: 50%; transform: translate(-50=
+%, 20px); opacity: 0; transition: 0.2s; background: var(--ink); color: var(=
+--surface); padding: 10px 16px; border-radius: 8px; font-size: 13px; z-inde=
+x: 300; pointer-events: none; }
+
+.toast.show { opacity: 1; transform: translate(-50%, 0px); }
+
+.toast.err { background: var(--bad); color: rgb(255, 255, 255); }
+
+@media (max-width: 640px) {
+  .top { padding: 12px 16px; }
+  .top .small { display: none; }
+  .nav { padding: 0px 8px; }
+  .controls { padding: 10px 16px; gap: 8px 14px; }
+  main { padding: 16px 16px 48px; }
+  .card { padding: 14px; }
+  input.search { min-width: 0px; width: 100%; }
+  .tile-v { font-size: 20px; }
+}
+
+.imp-head { margin: 4px 0px 14px; }
+
+.imp-title { font-size: 24px; letter-spacing: -0.015em; margin-bottom: 2px;=
+ }
+
+.imp-head .sub { color: var(--ink-2); margin: 0px; }
+
+.imp-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(m=
+in(100%, 380px), 1fr)); gap: 16px; }
+
+.imp-col { margin-bottom: 0px; padding-bottom: 8px; }
+
+.imp-col > header h2 { font-size: 17px; display: flex; align-items: center;=
+ gap: 8px; }
+
+.imp-arrow { font-size: 0.8em; }
+
+.imp-arrow.good { color: var(--good); }
+
+.imp-arrow.bad { color: var(--bad); }
+
+.imp-item { display: flex; flex-direction: column; gap: 6px; width: 100%; t=
+ext-align: left; font: inherit; color: inherit; background: none; border-ri=
+ght: 0px; border-bottom: 0px; border-left: 0px; border-image: none; border-=
+top: 1px solid var(--grid); padding: 12px 6px; cursor: pointer; border-radi=
+us: 6px; }
+
+.imp-item:hover { background: var(--surface-2); }
+
+.imp-top { display: flex; justify-content: space-between; align-items: base=
+line; gap: 12px; }
+
+.imp-tag { font-size: 15px; font-weight: 600; }
+
+.imp-eff { font-size: 18px; font-weight: 600; font-variant-numeric: tabular=
+-nums; white-space: nowrap; display: flex; gap: 6px; align-items: baseline;=
+ }
+
+.imp-bar { display: block; height: 8px; background: var(--surface-2); borde=
+r-radius: 4px; overflow: hidden; }
+
+.imp-bar > span { display: block; height: 100%; border-radius: 0px 4px 4px =
+0px; }
+
+.imp-bar > .good { background: var(--good); }
+
+.imp-bar > .bad { background: var(--bad); }
+
+.imp-meta { display: flex; justify-content: space-between; gap: 12px; font-=
+size: 12px; color: var(--ink-2); flex-wrap: wrap; }
+
+.evd { white-space: nowrap; letter-spacing: 0.02em; }
+
+.imp-item.ev0 .imp-bar > span, .imp-item.ev0 .imp-arrow { opacity: 0.35; }
+
+.imp-item.ev0 .imp-tag, .imp-item.ev0 .imp-eff { color: var(--ink-2); }
+
+.imp-item.ev1 .imp-bar > span { opacity: 0.6; }
+
+.imp-dose { display: flex; align-items: center; gap: 10px; flex-wrap: wrap;=
+ background: var(--surface); border: 1px solid var(--border); border-radius=
+: var(--r); padding: 10px 16px; margin-bottom: 16px; font-size: 14px; }
+
+.imp-dose .evd { margin-left: auto; font-size: 12px; color: var(--ink-2); }
+
+.center { text-align: center; margin: 16px 0px; }
+
+.controls[hidden] { display: none; }
+
+.rk { padding: 4px 8px 8px; }
+
+.rk-tbl td { vertical-align: middle; }
+
+.rk-in { font-weight: 600; }
+
+.rk-eff { font-weight: 600; font-variant-numeric: tabular-nums; white-space=
+: nowrap; }
+
+.rk-bar { width: 22%; min-width: 90px; }
+
+.rk-tbl tr.tier td { background: var(--surface-2); font-weight: 600; font-s=
+ize: 12px; color: var(--ink); padding-top: 8px; padding-bottom: 8px; }
+
+.rk-tbl tbody tr.tier:hover td { background: var(--surface-2); }
+
+.rk-tbl tr.ev0 .rk-in, .rk-tbl tr.ev0 .rk-eff { color: var(--ink-2); font-w=
+eight: 500; }
+
+.rk-tbl tr.ev0 .imp-bar > span, .rk-tbl tr.ev0 .imp-arrow { opacity: 0.35; =
+}
+
+.rk-tbl tr.ev1 .imp-bar > span { opacity: 0.6; }
+------MultipartBoundary--zqiu8ev08WtMjWyDH1dgtgBGBZc79SDU2Uq2NQcjMz------
